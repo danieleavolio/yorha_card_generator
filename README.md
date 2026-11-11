@@ -1,5 +1,9 @@
 # YoRHa Card Generator
 
+<p align=center>
+    <img src="https://64.media.tumblr.com/068954adbe26cace23411960b9317e0d/tumblr_omh5pyaARL1todbi1o1_540.gif"/>
+</p>
+
 Generates cards based on the YoRHa systems HUD
 from the iconic video game Nier:Automata.
 
@@ -9,7 +13,24 @@ This project has no external dependencies and its SVG cards are hard-coded assis
 
 For now only `Most Used Languages` is supported in dark and light theme versions.
 
+<table>
+  <tr>
+    <td>
+      <img src="assets/languages-light-demo.svg" width="400">
+      <p align="center">Light theme</p>
+    </td>
+    <td>
+      <img src="assets/languages-dark-demo.svg" width="400">
+      <p align="center">Dark theme</p>
+    </td>
+  </tr>
+</table>
+
 ## How to use
+
+<p align="center">
+    <img src="https://i.pinimg.com/originals/e9/16/50/e916504563e1015c64f96e8ab5388503.gif">
+</p>
 
 For now it is used by creating a GitHub Actions workflow:
 
@@ -27,7 +48,7 @@ jobs:
   update:
     runs-on: ubuntu-latest
 
-    # Give write permision
+    # Give write permission
     permissions:
       contents: write
 
@@ -51,7 +72,7 @@ jobs:
 
       - name: Generate SVG
         working-directory: generator
-        # Use env variables [OPITIONAL]
+        # Use env variables [OPTIONAL]
         env:
             GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
         # Use --username and put your user name
