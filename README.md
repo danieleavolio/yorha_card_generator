@@ -29,7 +29,7 @@ For now only `Most Used Languages` is supported in dark and light theme versions
 ## How to use
 
 <p align="center">
-    <img src="https://i.pinimg.com/originals/e9/16/50/e916504563e1015c64f96e8ab5388503.gif">
+    <img src="https://64.media.tumblr.com/a104f703855f5013264cf9f39bd87624/b9fc9a7f306a1c44-85/s1280x1920/97584e80a9900c9ec36c9a4b6d1b80d990aaa8b3.gifv" height=300>
 </p>
 
 For now it is used by creating a GitHub Actions workflow:
@@ -102,11 +102,11 @@ Add cards to your profile `README.md`:
 
 ```html
 <picture>
-        <source media="(prefers-color-scheme: dark)"
-            srcset="assets/languages-dark.svg"/>
-        <source media="(prefers-color-scheme: light)"
-            srcset="assets/languages-light.svg"/>
-        <img src="assets/languages-dark.svg" width="100%"
-            alt="GitHub Languages" onerror="this.remove()"/>
-    </picture>
+    <source media="(prefers-color-scheme: dark)"
+        srcset="assets/languages-dark.svg"/>
+    <source media="(prefers-color-scheme: light)"
+        srcset="assets/languages-light.svg"/>
+    <img src="assets/languages-dark.svg" width="100%"
+        alt="GitHub Languages" onerror="this.remove()"/>
+</picture>
 ```
