@@ -5,9 +5,9 @@
 </p>
 
 Generates cards based on the YoRHa systems HUD
-from the iconic video game Nier:Automata.
+from Nier:Automata.
 
-This project has no external dependencies and its SVG cards are hard-coded assisted by AI.
+Zero external dependencies - generate SVGs using Python's standard library.
 
 ## Cards
 
@@ -110,3 +110,5 @@ Add cards to your profile `README.md`:
         alt="GitHub Languages" onerror="this.remove()"/>
 </picture>
 ```
+
+**Glory to Mankind**
