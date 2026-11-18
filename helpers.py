@@ -1,5 +1,24 @@
 from consts import CHIP_PALETTE, OTHER_COLOR
 
+def exclude_languages(
+    languages: dict,
+    excluded: list[str]
+) -> dict:
+    """Remove languages from the statistics by name (case-insensitive)."""
+    names = {
+        name.strip().casefold()
+        for name in excluded
+        if name.strip()
+    }
+
+    if not names:
+        return languages
+
+    return {
+        name: size for name, size in languages.items()
+        if name.casefold() not in names
+    }
+
 def calculate_language_percentages(
     languages: dict,
     limit: int = 5

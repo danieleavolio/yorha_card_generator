@@ -1,7 +1,11 @@
 import argparse
+import os
 from urllib.error import HTTPError, URLError
 from api import get_languages
-from helpers import calculate_language_percentages
+from helpers import (
+    calculate_language_percentages,
+    exclude_languages
+)
 from renderer import render_languages_card
 from consts import THEMES
 
@@ -11,10 +15,19 @@ def parse_args():
     )
 
     parser.add_argument('--username',required=True)
+    parser.add_argument(
+        '--exclude-languages',
+        default=os.getenv('EXCLUDED_LANGUAGES', ''),
+        help='Comma-separated language names to ignore '
+             '(e.g. "Jupyter Notebook,Makefile")'
+    )
 
     return parser.parse_args()
 
-def generator(username: str) -> None:
+def generator(
+    username: str,
+    excluded_languages: list[str] | None = None
+) -> None:
     print("=" * 45)
     print(" PROFILE ANALYTICS")
     print("=" * 45)
@@ -22,6 +35,18 @@ def generator(username: str) -> None:
     try:
         # Collect GitHub data
         raw_languages = get_languages(username)
+
+        excluded_languages = excluded_languages or []
+        raw_languages = exclude_languages(
+            raw_languages,
+            excluded_languages
+        )
+
+        if excluded_languages:
+            print(
+                "Excluded languages: "
+                + ', '.join(excluded_languages)
+            )
 
         if not raw_languages:
             print("No language data found.")
@@ -87,4 +112,11 @@ def generator(username: str) -> None:
 if __name__ == "__main__":
     args = parse_args()
 
-    generator(args.username)
+    generator(
+        args.username,
+        [
+            name.strip()
+            for name in args.exclude_languages.split(',')
+            if name.strip()
+        ]
+    )

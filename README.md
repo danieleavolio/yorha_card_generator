@@ -26,6 +26,18 @@ For now only `Most Used Languages` is supported in dark and light theme versions
   </tr>
 </table>
 
+## Filtering languages
+
+Some languages (e.g. Jupyter Notebook) can dominate the byte count
+with generated or academic notebooks. Exclude them with
+`--exclude-languages` (comma-separated) or the `EXCLUDED_LANGUAGES`
+environment variable:
+
+```bash
+python generator.py --username YOUR_USERNAME \
+  --exclude-languages "Jupyter Notebook,Makefile"
+```
+
 ## How to use
 
 <p align="center">
